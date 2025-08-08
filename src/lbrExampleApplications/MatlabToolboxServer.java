@@ -162,13 +162,17 @@ public class MatlabToolboxServer extends RoboticsAPIApplication
 		getLogger().info("disposes");
 		if (dabak != null){
 			try {
-				dabak.soc.close();
+				if(dabak.soc != null) {
+					dabak.soc.close();
+				}
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			try {
-				dabak.ss.close();
+				if(dabak.ss != null) {
+					dabak.ss.close();
+				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
