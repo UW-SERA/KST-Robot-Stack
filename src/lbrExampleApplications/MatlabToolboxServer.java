@@ -160,17 +160,19 @@ public class MatlabToolboxServer extends RoboticsAPIApplication
 	@Override
 	public void dispose() {
 		getLogger().info("disposes");
-		try {
-			dabak.soc.close();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		try {
-			dabak.ss.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (dabak != null){
+			try {
+				dabak.soc.close();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			try {
+				dabak.ss.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 
