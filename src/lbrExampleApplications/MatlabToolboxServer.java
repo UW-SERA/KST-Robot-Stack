@@ -157,6 +157,22 @@ public class MatlabToolboxServer extends RoboticsAPIApplication
                 ptp(0., Math.PI / 180 * 20., 0., -Math.PI / 180 * 60., 0.,
                         Math.PI / 180 * 90., 0.));
     }
+	@Override
+	public void dispose() {
+		getLogger().info("disposes");
+		try {
+			dabak.soc.close();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			dabak.ss.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
     /**
      * Main Application Routine
